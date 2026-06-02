@@ -1,0 +1,23 @@
+{
+  "name": "qa_automation_eval",
+  "version": "1.0.0",
+  "description": "Develop the following automated tests in Playwright Framework. Keep tests focused on a single goal and reduce setup steps to the bare minimum.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorCapitole/qa_automation_eval.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VictorCapitole/qa_automation_eval/issues"
+  },
+  "homepage": "https://github.com/VictorCapitole/qa_automation_eval#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  }
+}

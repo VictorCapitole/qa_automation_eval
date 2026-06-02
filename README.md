@@ -19,3 +19,71 @@ Each Ability has a name with an associated url with expanded info on the ability
 One of its abilites is shared amongst more Pokemon than the other.
 Pikachu have over a 100 moves.
 Pikachu shares more than 10 moves with Electabuzz.
+
+## How to run the tests
+
+Install the project dependencies:
+
+```bash
+npm install
+```
+
+Install the Playwright browsers:
+
+```bash
+npx playwright install
+```
+
+Run all tests:
+
+```bash
+npx playwright test
+```
+
+Run the tests in UI mode:
+
+```bash
+npx playwright test --ui
+```
+
+Show the HTML report after a test run:
+
+```bash
+npx playwright show-report
+```
+
+## Local WSL / Ubuntu workaround
+
+On some WSL or Ubuntu versions, Playwright may fail when downloading its bundled Chromium browser. In that case, install Google Chrome inside WSL and run the tests using the local Chrome installation.
+
+Install Google Chrome:
+
+```bash
+sudo apt update
+sudo apt install -y google-chrome-stable
+```
+
+If the package is not available, add Google's repository first:
+
+```bash
+sudo apt update
+sudo apt install -y wget gnupg ca-certificates
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt update
+sudo apt install -y google-chrome-stable
+```
+
+Verify Chrome is installed:
+
+```bash
+google-chrome --version
+```
+
+Run the tests with local Chrome:
+
+```bash
+PW_LOCAL_CHROME=1 npx playwright test
+```
+
+This workaround is only needed for local execution in WSL/Ubuntu environments where Playwright browser installation is not supported. On macOS or supported Linux versions, use the standard commands above.

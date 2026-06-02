@@ -40,6 +40,26 @@ Run all tests:
 npx playwright test
 ```
 
+Run only the frontend tests:
+
+```bash
+npx playwright test --project=chromium
+```
+
+Run the frontend tests with the browser visible:
+
+```bash
+npx playwright test --project=chromium --headed
+```
+
+This headed mode is useful for debugging or visually reviewing the frontend flow. For regular automated execution, use the standard headless commands above.
+
+Run only the API tests:
+
+```bash
+npx playwright test --project=api
+```
+
 Run the tests in UI mode:
 
 ```bash
@@ -52,38 +72,12 @@ Show the HTML report after a test run:
 npx playwright show-report
 ```
 
-## Local WSL / Ubuntu workaround
+## Optional WSL note
 
-On some WSL or Ubuntu versions, Playwright may fail when downloading its bundled Chromium browser. In that case, install Google Chrome inside WSL and run the tests using the local Chrome installation.
-
-Install Google Chrome:
+If Playwright browser installation fails in WSL or Ubuntu, install Google Chrome locally and run the frontend tests with the local Chrome installation:
 
 ```bash
-sudo apt update
-sudo apt install -y google-chrome-stable
+PW_LOCAL_CHROME=1 npx playwright test --project=chromium
 ```
 
-If the package is not available, add Google's repository first:
-
-```bash
-sudo apt update
-sudo apt install -y wget gnupg ca-certificates
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt update
-sudo apt install -y google-chrome-stable
-```
-
-Verify Chrome is installed:
-
-```bash
-google-chrome --version
-```
-
-Run the tests with local Chrome:
-
-```bash
-PW_LOCAL_CHROME=1 npx playwright test
-```
-
-This workaround is only needed for local execution in WSL/Ubuntu environments where Playwright browser installation is not supported. On macOS or supported Linux versions, use the standard commands above.
+This is only a local workaround. On macOS or supported Linux versions, use the standard commands above.

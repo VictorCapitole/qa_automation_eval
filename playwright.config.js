@@ -20,7 +20,7 @@ export default defineConfig({
     },
     {
       name: 'api',
-      testMatch: '**/testAPI.spec.js',
+      testMatch: '**/pokemonApi.spec.js',
     },
   ]
 });

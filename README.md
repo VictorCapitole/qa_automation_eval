@@ -20,6 +20,31 @@ One of its abilites is shared amongst more Pokemon than the other.
 Pikachu have over a 100 moves.
 Pikachu shares more than 10 moves with Electabuzz.
 
+## Project structure
+
+The frontend tests use the Page Object Model pattern to keep selectors and page actions separated from the test assertions. Page objects are located in `pages/`, test data is located in `data/`, and the test scenarios remain focused on behavior in `tests/processOrder.spec.js`.
+
+Implemented frontend tests:
+
+- User can login.
+- User can add a product to the cart.
+- User can remove a product from the cart.
+- User can complete an order.
+- User cannot login with an empty username.
+- User cannot login with an empty password.
+- User cannot login with invalid credentials.
+- Locked-out user cannot login.
+- User cannot continue checkout without first name.
+- User cannot continue checkout without last name.
+- User cannot continue checkout without postal code.
+- Checkout handles input string injection safely.
+- Checkout handles 250+ character first and last names.
+- Checkout handles invalid postal code format.
+
+The API tests use a Service Client Pattern to keep HTTP request logic isolated from validations and test scenarios. The PokeAPI client is located in `services/pokemonService.js`, validation helpers are located in `utils/pokemonValidator.js`, and API configuration data is located in `data/pokemonData.js`.
+
+This structure keeps the code cleaner, more reusable, and easier to maintain as the test suite grows.
+
 ## How to run the tests
 
 Install the project dependencies:

@@ -1,0 +1,22 @@
+{
+  "name": "qa_automation_eval",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prueba técnica de automatización QA con Playwright + TypeScript: SauceDemo (UI) y PokéAPI (API)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:frontend": "playwright test --project=frontend",
+    "test:backend": "playwright test --project=backend",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
